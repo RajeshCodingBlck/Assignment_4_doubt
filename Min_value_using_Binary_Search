@@ -1,0 +1,48 @@
+package Lec1;
+
+public class MIN_element_using_Binary_Search {
+    
+	public static boolean Can_min(int [] arr, int mid) {
+		
+		  
+		for(int i=0; i<arr.length;i++) {
+			
+			 if(arr[i]<mid) {
+				 return false;
+			 }
+		}
+		
+		return true;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        int [] arr= {12,4,3,4,5};
+        
+        
+        for(int i=-10; i<=100;i++) {
+        	
+        	System.out.println(i+ " can Min "+ Can_min(arr,i));
+        }
+        
+        
+        int low=1;
+        int high=(int)(100);
+        
+        int ans=-1;
+        while(low<=high) {
+        	
+        	int mid= (low+high)/2;
+        	
+        	
+        	if(Can_min(arr, mid)==false) {
+        		high=mid-1;
+        	}else {
+        		ans=mid;
+        		low=mid+1;
+        	}
+        }
+        
+        System.out.println(ans);
+	}
+
+}
